@@ -38,9 +38,10 @@ func BSM() (err error) {
 	}
 	if ansNode.Arrival {
 		ansNode.Step--
+		fmt.Println()
 		restoreMatrix(ansNode.ParentCantor)
 		viewMatrix(ansNode.Arr)
-		fmt.Printf("\n%+v\n", ansNode)
+		fmt.Printf("%+v\n", ansNode)
 	}
 	return
 }
