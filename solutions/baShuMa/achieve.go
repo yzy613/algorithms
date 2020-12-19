@@ -6,14 +6,13 @@ import (
 
 /*
  * 小笔记：
- * 将矩阵改为 []string 来存储，优化空间占用和算法复杂问题
  * 对于 arr[position]，position = row * 3 + column
  * bfs 去重的算法思路先不变，后面再搞 IDA* 算法（主要是我想记录过程，好阅读还原）
  * 注意 康托展开算法
  * 考虑 verify() 函数的用途
  */
 
-func HRD() (err error) {
+func BSM() (err error) {
 	srcZeroPosition, dstZeroPosition, err := inputAndPreprocess()
 	if err != nil {
 		return
@@ -33,7 +32,7 @@ func HRD() (err error) {
 		ZeroPosition: srcZeroPosition,
 		Arrival:      false,
 	}
-	ansNode, err := hrdBFS(nodeCantorArr[srcCantor], CantorExpansion(dstArr))
+	ansNode, err := bsmBFS(nodeCantorArr[srcCantor], CantorExpansion(dstArr))
 	if err != nil {
 		return
 	}
@@ -54,7 +53,7 @@ func restoreMatrix(nextNodeCantor int) {
 	viewMatrix(nodeCantorArr[nextNodeCantor].Arr)
 }
 
-func hrdBFS(firstNode nodeInfo, targetCantor int) (ansNode nodeInfo, err error) {
+func bsmBFS(firstNode nodeInfo, targetCantor int) (ansNode nodeInfo, err error) {
 	queue := make([]nodeInfo, 0)
 	queue = append(queue, firstNode)
 	for {

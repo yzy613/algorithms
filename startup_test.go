@@ -6,7 +6,7 @@ import (
 )
 
 func TestStartup(t *testing.T) {
-	err := baShuMa.HRD()
+	err := baShuMa.BSM()
 	if err != nil {
 		t.Error(err)
 	}

@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	err := baShuMa.HRD()
+	err := baShuMa.BSM()
 	if err != nil {
 		log.Fatal(err)
 	}
