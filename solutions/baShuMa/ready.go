@@ -81,6 +81,7 @@ func preprocessFactorialArr(upperLimit int) {
 	}
 }
 
+// 无意义，无解也就 15s 运行完
 func verify(srcZeroPosition, dstZeroPosition int) (err error) {
 	srcArrTemp, dstArrTemp := new([]int), new([]int)
 	err = DeepCopy(srcArr, srcArrTemp)

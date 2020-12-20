@@ -2,7 +2,7 @@ package main
 
 import (
 	"log"
-	"solution-by-algorithm/solutions/baShuMa"
+	"solve-problems-by-algorithms/solutions/baShuMa"
 )
 
 func main() {

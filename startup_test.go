@@ -1,7 +1,7 @@
 package main
 
 import (
-	"solution-by-algorithm/solutions/baShuMa"
+	"solve-problems-by-algorithms/solutions/baShuMa"
 	"testing"
 )
 

@@ -13,16 +13,17 @@ import (
  */
 
 func BSM() (err error) {
-	srcZeroPosition, dstZeroPosition, err := inputAndPreprocess()
+	srcZeroPosition, _, err := inputAndPreprocess()
 	if err != nil {
 		return
 	}
 	//viewMatrix(srcArr)
 	//viewMatrix(dstArr)
-	err = verify(srcZeroPosition, dstZeroPosition)
+	// 这个 verify(srcZeroPosition, dstZeroPosition int) (err error) 无意义，无解也就 15s 运行完
+	/*err = verify(srcZeroPosition, dstZeroPosition)
 	if err != nil {
-		//return
-	}
+		return
+	}*/
 	srcCantor := CantorExpansion(srcArr)
 	nodeCantorArr = make([]nodeInfo, factorialArr[matrixRow*matrixRow], factorialArr[matrixRow*matrixRow])
 	nodeCantorArr[srcCantor] = nodeInfo{
@@ -42,6 +43,8 @@ func BSM() (err error) {
 		restoreMatrix(ansNode.ParentCantor)
 		viewMatrix(ansNode.Arr)
 		fmt.Printf("%+v\n", ansNode)
+	} else {
+		fmt.Println("\n无解")
 	}
 	return
 }
