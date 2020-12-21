@@ -46,18 +46,18 @@ func CantorExpansion(src []int) (cantorNum int) {
 }
 
 // 逆康托展开
-func UnCantorExpansion(cantorNum, upperLimit int) (currentArr []int) {
+func DeCantorExpansion(cantorNum, upperLimit int) (currentArr []int) {
 	currentArr = make([]int, upperLimit, upperLimit)
 	usedArr := make([]bool, upperLimit, upperLimit)
 	for i := upperLimit - 1; i >= 0; i-- {
-		leftFigure := cantorNum/factorialArr[i] + 1
+		remainingFigure := cantorNum/factorialArr[i] + 1
 		cantorNum %= factorialArr[i]
 		countNum := 0
 		for j := 0; j < upperLimit; j++ {
 			if !usedArr[j] {
 				countNum++
 			}
-			if countNum == leftFigure {
+			if countNum == remainingFigure {
 				usedArr[j] = true
 				// 当前数字的范围是 0 ~ upperLimit-1
 				// 如果范围是 1 ~ upperLimit，请把 j 改成 j+1

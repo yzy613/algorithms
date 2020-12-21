@@ -48,18 +48,18 @@ func TestUnCantorExpansion(t *testing.T) {
 	testArr := []int{3, 4, 1, 5, 2}
 	lengthTestArr := len(testArr)
 	preprocessFactorialArr(lengthTestArr)
-	temp := UnCantorExpansion(61, lengthTestArr)
+	temp := DeCantorExpansion(61, lengthTestArr)
 	r := CantorExpansion(temp)
 	if r != 61 {
-		t.Errorf("UnCantorExpansion(61, 5) failed. Got %v, expected [3, 4, 1, 5, 2].", temp)
+		t.Errorf("DeCantorExpansion(61, 5) failed. Got %v, expected [3, 4, 1, 5, 2].", temp)
 	}
 
 	testArr = []int{2, 8, 3, 1, 0, 4, 7, 6, 5}
 	lengthTestArr = len(testArr)
 	preprocessFactorialArr(lengthTestArr)
-	temp = UnCantorExpansion(117485, lengthTestArr)
+	temp = DeCantorExpansion(117485, lengthTestArr)
 	r = CantorExpansion(temp)
 	if r != 117485 {
-		t.Errorf("UnCantorExpansion(117485) failed. Got %v, expected [2, 8, 3, 1, 0, 4, 7, 6, 5].", temp)
+		t.Errorf("DeCantorExpansion(117485) failed. Got %v, expected [2, 8, 3, 1, 0, 4, 7, 6, 5].", temp)
 	}
 }
