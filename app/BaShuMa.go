@@ -1,22 +1,19 @@
 package main
 
 import (
+	"algorithms/common"
 	"algorithms/solutions/BaShuMa"
 	flag "github.com/spf13/pflag"
 )
 
-var (
-	file = flag.StringP("file", "f", "", "file path")
-)
-
 func main() {
 	flag.Parse()
-	if *file == "" {
+	if *common.File == "" {
 		flag.Usage()
 		return
 	}
-	// 运行指定算法
-	err := BaShuMa.Run(*file)
+	// 八数码
+	err := BaShuMa.Run(*common.File)
 	if err != nil {
 		panic(err)
 	}
