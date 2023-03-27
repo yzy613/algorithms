@@ -89,7 +89,7 @@ func mergeSort(arr []int) {
 }
 
 func generateRandArr() []int {
-	fmt.Print("input array length: ")
+	fmt.Print("enter array length: ")
 	n := 0
 	_, err := fmt.Scan(&n)
 	if err != nil {
