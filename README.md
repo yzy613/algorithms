@@ -25,3 +25,11 @@ path: `solutions/CheckerboardOverlay`
 ### 黑白棋子移动
 
 path: `solutions/chessman`
+
+### 幸运数
+
+path: `solutions/LuckyNum`
+
+### 满足条件的元素对个数
+
+path: `solutions/CountNumCouple`
