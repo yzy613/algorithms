@@ -33,3 +33,7 @@ path: `solutions/LuckyNum`
 ### 满足条件的元素对个数
 
 path: `solutions/CountNumCouple`
+
+### 循环游戏
+
+path: `solutions/LoopGame`
