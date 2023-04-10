@@ -85,48 +85,38 @@ func printMatrix(size int, matrix []string) {
 
 func surroundingArea(size int, matrix []string) {
 	queue := glist.New()
-	stack := glist.New()
-	// 避开第 0 行和最后一行
-	areaSize := size*size - size - 1
-	for i := size + 1; i < areaSize; i++ {
-		if i%size == 0 || i%size == size-1 || matrix[i] == "X" {
-			// 避开第 0 列和最后一列且不为 X
+	// 遍历最外层的一圈，遇到 O 就 bfs
+	for i := 0; i < size*size; i++ {
+		if i/size > 0 && i/size < size-1 && i%size == 1 {
+			// 跳到这一行的最后一个位置
+			i = (i/size+1)*size - 1
+		}
+		if matrix[i] != "O" {
 			continue
 		}
-		// 每新到一个 O，清空队列和栈
-		queue.Clear()
-		stack.Clear()
 		queue.PushBack(i)
-		invalid := false
 		// bfs
 		for queue.Len() > 0 {
 			index := queue.PopFront().(int)
-			matrix[index] = "X"
-			// 记录修改过的 O
-			stack.PushBack(index)
+			matrix[index] = "Y"
 			for j := 0; j < 4; j++ {
 				nextRow := index/size + moveRule[0][j]
 				nextCol := index%size + moveRule[1][j]
 				if nextRow < 0 || nextRow >= size || nextCol < 0 || nextCol >= size {
-					// 越界
-					invalid = true
-					break
+					continue
 				}
 				nextIndex := nextRow*size + nextCol
 				if matrix[nextIndex] == "O" {
 					queue.PushBack(nextIndex)
 				}
 			}
-			if invalid {
-				// 越界就退出 bfs
-				break
-			}
 		}
-		if invalid {
-			// 越界就恢复被修改成 X 的 O
-			for stack.Len() > 0 {
-				matrix[stack.PopBack().(int)] = "O"
-			}
+	}
+	for i := 0; i < size*size; i++ {
+		if matrix[i] == "Y" {
+			matrix[i] = "O"
+		} else if matrix[i] == "O" {
+			matrix[i] = "X"
 		}
 	}
 }
