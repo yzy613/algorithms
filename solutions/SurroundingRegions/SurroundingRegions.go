@@ -1,4 +1,4 @@
-package SurroundingArea
+package SurroundingRegions
 
 import (
 	"fmt"
@@ -21,7 +21,7 @@ func Run(filePath string) (err error) {
 		matrix []string
 	)
 	if filePath == "" {
-		size, matrix, err = generateRandArea()
+		size, matrix, err = generateRandRegions()
 	} else {
 		size, matrix, err = readFile(filePath)
 	}
@@ -29,7 +29,7 @@ func Run(filePath string) (err error) {
 		return
 	}
 	printMatrix(size, matrix)
-	surroundingArea(size, matrix)
+	surroundingRegions(size, matrix)
 	printMatrix(size, matrix)
 	return
 }
@@ -54,9 +54,9 @@ func readFile(filePath string) (size int, matrix []string, err error) {
 	return
 }
 
-func generateRandArea() (size int, matrix []string, err error) {
+func generateRandRegions() (size int, matrix []string, err error) {
 	// input size from user
-	fmt.Print("Please input the size of the area: ")
+	fmt.Print("Please input the size of the regions: ")
 	_, err = fmt.Scan(&size)
 	if err != nil {
 		return
@@ -83,7 +83,7 @@ func printMatrix(size int, matrix []string) {
 	fmt.Println()
 }
 
-func surroundingArea(size int, matrix []string) {
+func surroundingRegions(size int, matrix []string) {
 	queue := glist.New()
 	// 遍历最外层的一圈，遇到 O 就 bfs
 	for i := 0; i < size*size; i++ {
