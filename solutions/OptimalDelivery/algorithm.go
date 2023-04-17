@@ -14,9 +14,11 @@ func bfs(matrix []point, size, customerNum int, shopIndex []int) (cost int) {
 	}
 	for queue.Len() > 0 {
 		index := queue.Pop().(int)
+		row := index / size
+		col := index % size
 		for i := 0; i < 4; i++ {
-			nextRow := index/size + moveRule[0][i]
-			nextCol := index%size + moveRule[1][i]
+			nextRow := row + moveRule[0][i]
+			nextCol := col + moveRule[1][i]
 			if nextRow < 0 || nextRow >= size || nextCol < 0 || nextCol >= size {
 				continue
 			}

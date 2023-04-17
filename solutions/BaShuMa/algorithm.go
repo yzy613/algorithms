@@ -87,13 +87,16 @@ func bfs(ctx context.Context, wg *sync.WaitGroup) {
 		}
 		// 推送消息
 		msgQueue.Push(packMessage(curr, queue.Len()))
+		row := curr.ZeroPosition / matrixSize
+		col := curr.ZeroPosition % matrixSize
 		// 遍历所有可能的移动
 		for i := 0; i < 4; i++ {
-			nextRow, nextColumn := curr.ZeroPosition/matrixSize+moveRule[0][i], curr.ZeroPosition%matrixSize+moveRule[1][i]
-			if nextRow < 0 || nextRow >= matrixSize || nextColumn < 0 || nextColumn >= matrixSize {
+			nextRow := row + moveRule[0][i]
+			nextCol := col + moveRule[1][i]
+			if nextRow < 0 || nextRow >= matrixSize || nextCol < 0 || nextCol >= matrixSize {
 				continue
 			}
-			nextZeroPosition := nextRow*matrixSize + nextColumn
+			nextZeroPosition := nextRow*matrixSize + nextCol
 			nextMatrix := make([]int, matrixSize*matrixSize)
 			copy(nextMatrix, *curr.Matrix)
 			nextMatrix[curr.ZeroPosition], nextMatrix[nextZeroPosition] = nextMatrix[nextZeroPosition], nextMatrix[curr.ZeroPosition]

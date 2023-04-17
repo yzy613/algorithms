@@ -2,7 +2,7 @@ package SurroundingRegions
 
 import (
 	"fmt"
-	"github.com/gogf/gf/v2/container/glist"
+	"github.com/gogf/gf/v2/container/gqueue"
 	"github.com/gogf/gf/v2/util/gconv"
 	"io"
 	"math/rand"
@@ -84,7 +84,7 @@ func printMatrix(size int, matrix []string) {
 }
 
 func surroundingRegions(size int, matrix []string) {
-	queue := glist.New()
+	queue := gqueue.New()
 	// 遍历最外层的一圈，遇到 O 就 bfs
 	for i := 0; i < size*size; i++ {
 		if i/size > 0 && i/size < size-1 && i%size == 1 {
@@ -94,20 +94,22 @@ func surroundingRegions(size int, matrix []string) {
 		if matrix[i] != "O" {
 			continue
 		}
-		queue.PushBack(i)
+		queue.Push(i)
 		// bfs
 		for queue.Len() > 0 {
-			index := queue.PopFront().(int)
+			index := queue.Pop().(int)
 			matrix[index] = "Y"
+			row := index / size
+			col := index % size
 			for j := 0; j < 4; j++ {
-				nextRow := index/size + moveRule[0][j]
-				nextCol := index%size + moveRule[1][j]
+				nextRow := row + moveRule[0][j]
+				nextCol := col + moveRule[1][j]
 				if nextRow < 0 || nextRow >= size || nextCol < 0 || nextCol >= size {
 					continue
 				}
 				nextIndex := nextRow*size + nextCol
 				if matrix[nextIndex] == "O" {
-					queue.PushBack(nextIndex)
+					queue.Push(nextIndex)
 				}
 			}
 		}
