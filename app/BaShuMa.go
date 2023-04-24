@@ -3,6 +3,7 @@ package main
 import (
 	"algorithms/common"
 	"algorithms/solutions/BaShuMa"
+	"fmt"
 	flag "github.com/spf13/pflag"
 )
 
@@ -15,6 +16,6 @@ func main() {
 	// 八数码
 	err := BaShuMa.Run(*common.File)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 }

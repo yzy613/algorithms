@@ -3,6 +3,7 @@ package main
 import (
 	"algorithms/common"
 	"algorithms/solutions/MergeSort"
+	"fmt"
 	flag "github.com/spf13/pflag"
 )
 
@@ -11,6 +12,6 @@ func main() {
 	// 归并排序
 	err := MergeSort.Run(*common.File)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 }

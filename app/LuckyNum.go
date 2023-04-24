@@ -1,11 +1,14 @@
 package main
 
-import "algorithms/solutions/LuckyNum"
+import (
+	"algorithms/solutions/LuckyNum"
+	"fmt"
+)
 
 func main() {
 	// 幸运数
 	err := LuckyNum.Run()
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
 	}
 }

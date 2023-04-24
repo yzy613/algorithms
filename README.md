@@ -49,3 +49,7 @@ path: `solutions/SurroundingRegions`
 ### 最优配送
 
 path: `solutions/OptimalDelivery`
+
+### 货船装载
+
+path: `solutions/ShipLoading`

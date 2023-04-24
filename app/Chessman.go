@@ -1,13 +1,13 @@
 package main
 
 import (
-	"algorithms/solutions/LoopGame"
+	"algorithms/solutions/Chessman"
 	"fmt"
 )
 
 func main() {
-	// 循环游戏
-	err := LoopGame.Run()
+	// 黑白棋子移动
+	err := Chessman.Run()
 	if err != nil {
 		fmt.Println(err)
 	}

@@ -1,4 +1,4 @@
-package chessman
+package Chessman
 
 import (
 	"fmt"
