@@ -11,8 +11,7 @@ func Run() (err error) {
 		return
 	}
 	goodsWeight, cargoShipLoadCapacity := generateRandData(goodsNum)
-	// debug print
-	//debug(goodsWeight, cargoShipLoadCapacity)
+	printData(goodsWeight, cargoShipLoadCapacity)
 	success, cargoShipLoadGoods := loadGoods(goodsWeight, cargoShipLoadCapacity)
 	if !success {
 		fmt.Println("无装载方案")
@@ -91,7 +90,7 @@ func loadGoods(goodsWeight, cargoShipLoadCapacity []int) (success bool, cargoShi
 	return
 }
 
-func debug(goodsWeight, cargoShipLoadCapacity []int) {
+func printData(goodsWeight, cargoShipLoadCapacity []int) {
 	fmt.Println("---")
 	totalWeight := 0
 	fmt.Println("货物重量：")
@@ -104,19 +103,19 @@ func debug(goodsWeight, cargoShipLoadCapacity []int) {
 	for i := 0; i < len(cargoShipLoadCapacity); i++ {
 		fmt.Printf("%d ", cargoShipLoadCapacity[i])
 	}
-	s := struct {
-		TotalWeight          int
-		FloorLoadCapacity    int
-		FloatingRange        int
-		FloorLoadCapacitySec int
-		FloatingRangeSec     int
-	}{
-		TotalWeight: totalWeight,
-	}
-	s.FloorLoadCapacity = totalWeight * 3 / 10
-	s.FloatingRange = totalWeight*6/10 - s.FloorLoadCapacity
-	s.FloorLoadCapacitySec = totalWeight - cargoShipLoadCapacity[0]
-	s.FloatingRangeSec = totalWeight*12/10 - cargoShipLoadCapacity[0] - s.FloorLoadCapacitySec
-	fmt.Printf("\n%+v", s)
+	//s := struct {
+	//	TotalWeight          int
+	//	FloorLoadCapacity    int
+	//	FloatingRange        int
+	//	FloorLoadCapacitySec int
+	//	FloatingRangeSec     int
+	//}{
+	//	TotalWeight: totalWeight,
+	//}
+	//s.FloorLoadCapacity = totalWeight * 3 / 10
+	//s.FloatingRange = totalWeight*6/10 - s.FloorLoadCapacity
+	//s.FloorLoadCapacitySec = totalWeight - cargoShipLoadCapacity[0]
+	//s.FloatingRangeSec = totalWeight*12/10 - cargoShipLoadCapacity[0] - s.FloorLoadCapacitySec
+	//fmt.Printf("\n%+v", s)
 	fmt.Println("\n---")
 }
