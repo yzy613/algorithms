@@ -53,3 +53,7 @@ path: `solutions/OptimalDelivery`
 ### 货船装载
 
 path: `solutions/ShipLoading`
+
+### 旅行商问题
+
+path: `solutions/TravelingSalesmanProblem`
