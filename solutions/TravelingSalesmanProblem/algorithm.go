@@ -58,7 +58,7 @@ func bfs(cityMap [][]int, startCity int) (path []int, length int) {
 			continue
 		}
 		// debug
-		progressBar(b, cityNum)
+		//progressBar(b, cityNum)
 		// 判断已经遍历完所有城市
 		switch len(b.Path) {
 		case cityNum:
@@ -128,7 +128,7 @@ func bfsSlow(cityMap [][]int, startCity int) (path []int, length int) {
 		}
 		b := bTemp.(*branch)
 		// debug
-		progressBar(b, cityNum)
+		//progressBar(b, cityNum)
 		// 判断已经遍历完所有城市
 		switch len(b.Path) {
 		case cityNum:

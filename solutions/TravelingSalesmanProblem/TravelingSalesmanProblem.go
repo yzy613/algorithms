@@ -3,6 +3,7 @@ package TravelingSalesmanProblem
 import (
 	"fmt"
 	"math/rand"
+	"time"
 )
 
 func Run() (err error) {
@@ -14,19 +15,25 @@ func Run() (err error) {
 	printCityMap(cityMap)
 	startCity := rand.Intn(cityNum)
 	// 剪枝的 bfs
+	t1 := time.Now()
 	path, length := bfs(cityMap, startCity)
+	t2 := time.Now()
 	// for progressBar()
-	fmt.Println()
+	//fmt.Println()
 	// 剪枝结果
 	fmt.Println("剪枝结果: ")
+	fmt.Println("耗时: ", t2.Sub(t1))
 	printPathAndLength(path, length)
-	//// 不剪枝的 bfs
-	//path, length = bfsSlow(cityMap, startCity)
-	//// for progressBar()
+	// 不剪枝的 bfs
+	t1 = time.Now()
+	path, length = bfsSlow(cityMap, startCity)
+	t2 = time.Now()
+	// for progressBar()
 	//fmt.Println()
-	//// 验证结果
-	//fmt.Println("验证结果: ")
-	//printPathAndLength(path, length)
+	// 验证结果
+	fmt.Println("验证结果: ")
+	fmt.Println("耗时: ", t2.Sub(t1))
+	printPathAndLength(path, length)
 	return
 }
 
