@@ -57,3 +57,7 @@ path: `solutions/ShipLoading`
 ### 旅行商问题
 
 path: `solutions/TravelingSalesmanProblem`
+
+### 单源最短路径
+
+path: `solutions/SingleSourceShortestPath`
