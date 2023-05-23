@@ -61,3 +61,7 @@ path: `solutions/TravelingSalesmanProblem`
 ### 单源最短路径
 
 path: `solutions/SingleSourceShortestPath`
+
+### 多机调度
+
+path: `solutions/MultiMachineScheduling`
