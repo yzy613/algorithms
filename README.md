@@ -65,3 +65,7 @@ path: `solutions/SingleSourceShortestPath`
 ### 多机调度
 
 path: `solutions/MultiMachineScheduling`
+
+### 最长公共子序列
+
+path: `solutions/LongestCommonSubsequence`
