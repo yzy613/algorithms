@@ -56,7 +56,7 @@ func longestCommonSubsequence(text1, text2 string) (int, string) {
 		for j, c2 := range text2 {
 			if c1 == c2 {
 				dp[i+1][j+1] = dp[i][j] + 1
-				rs := make([]rune, len(subsequence[i][j]))
+				rs := make([]rune, len(subsequence[i][j]), len(subsequence[i][j])+1)
 				copy(rs, subsequence[i][j])
 				subsequence[i+1][j+1] = append(rs, c1)
 			} else {
@@ -70,11 +70,11 @@ func longestCommonSubsequence(text1, text2 string) (int, string) {
 			}
 		}
 	}
-	//printDp(text1, text2, dp)
+	//debug(text1, text2, dp)
 	return dp[m][n], string(subsequence[m][n])
 }
 
-func printDp(text1, text2 string, dp [][]int) {
+func debug(text1, text2 string, dp [][]int) {
 	for i, row := range dp {
 		if i == 0 {
 			fmt.Print("    ")

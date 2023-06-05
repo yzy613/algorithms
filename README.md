@@ -69,3 +69,7 @@ path: `solutions/MultiMachineScheduling`
 ### 最长公共子序列
 
 path: `solutions/LongestCommonSubsequence`
+
+### 背包问题
+
+path: `solutions/Knapsack`
